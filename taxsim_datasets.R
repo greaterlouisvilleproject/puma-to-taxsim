@@ -9,11 +9,10 @@ library(tidyverse)
 library(DBI)
 library(data.table)
 
-source('functions/puma_functions.R')
-source('tax_puma_cal/taxsim_functions.R')
+source('taxsim_functions.R')
 
-# connect to PUMS database
-con <- dbConnect(RSQLite::SQLite(), "puma_data/pums_db.db")
+# connect to PUMS database (not on Github)
+con <- dbConnect(RSQLite::SQLite(), "pums_db.db")
 
 #########################################################################################
 

@@ -117,9 +117,6 @@ pop_taxes <- function(con, year) {
     # tax units get child tax credit, and amount depends on number of children 16 or younger
     left_join(num_children(., 16), by = c('SERIALNO', 'tax_unit')) %>%
     rename(child_credit = num_under) %>%
-    # tax units get dependent care credit for children 12 and under
-    # left_join(num_children(., 12), by = c('SERIALNO', 'tax_unit')) %>%
-    # rename(dep_care = num_under) %>%
     # calculate tax unit filing status (single or married filing jointly)
     # all married couples are assumed to file jointly
     # in REL column 1 signifies spouse to reference person, so if there is a 1
