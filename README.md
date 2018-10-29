@@ -1,4 +1,4 @@
-# Convert Public Use Microdata Areas data to format for use with the TAXSIM simulator
+# Calcculate household tax liabilities for Public Use Microdata Areas
 
 The NBER's [TAXSIM simulator](https://users.nber.org/~taxsim/taxsim27/) allows users to estimate federal and state income taxes, and FICA (payroll) taxes, for taxpayers. To calculate taxes for multiple tax units, unsers can enter a text file with each line representing a tx unit. The file requires a specific format with 27 completed values.
 
