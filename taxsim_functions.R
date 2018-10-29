@@ -227,7 +227,7 @@ pop_taxes <- function(con, year, household = TRUE) {
            ST = 34,
            dep_care = 0,
            # add SPORDER as decimal if we want individual (instead of household) tax liabilities
-           SERIALNO = if (!!household == FALSE) (.$SPORDER / 10) + .$SERIALNO else .$SERIALNO) %>%
+           SERIALNO = if (!!household == FALSE) (.$SPORDER + 1000) + .$SERIALNO else .$SERIALNO) %>%
     # incomes cannot be negative
     mutate_at(.vars = vars(primary_income, spouse_income, INTP, SSP),
               .funs = funs(ifelse(. < 0, 0, .))) %>%

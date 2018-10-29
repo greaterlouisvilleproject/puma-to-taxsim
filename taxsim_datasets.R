@@ -22,14 +22,12 @@ con <- dbConnect(RSQLite::SQLite(), "pums_db.db")
 # initialize dataframe that will contain all years
 taxes <- data.frame()
 
-for (yr in seq(2006, 2017)) {
+for (yr in seq(2006, 2007)) {
   
   print(yr)
   
  # calculate taxable income and write out results
  taxes <- pop_taxes(con, yr, household = FALSE) %>%
-   # convert SERIALNO to numeric so we can combine years prior to 2017 with 2017
-   mutate(SERIALNO = as.numeric(SERIALNO)) %>%
    bind_rows(taxes, .)
  
 }
