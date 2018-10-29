@@ -32,6 +32,8 @@ for (yr in seq(2006, 2007)) {
  
 }
 
+# write_csv(taxes, 'nc_tax_liabilities_ind.csv', col_names = FALSE)
+
 ###########################################################################
 #
 # use online taxsim to calculate taxes, and store output as a txt file by 
