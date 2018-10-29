@@ -27,7 +27,7 @@ for (yr in seq(2006, 2017)) {
   print(yr)
   
  # calculate taxable income and write out results
- taxes <- pop_taxes(con, yr) %>%
+ taxes <- pop_taxes(con, yr, household = FALSE) %>%
    # convert SERIALNO to numeric so we can combine years prior to 2017 with 2017
    mutate(SERIALNO = as.numeric(SERIALNO)) %>%
    bind_rows(taxes, .)
