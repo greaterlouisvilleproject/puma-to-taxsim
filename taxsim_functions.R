@@ -8,9 +8,6 @@
 library(tidyverse)
 library(DBI)
 
-#con <- dbConnect(RSQLite::SQLite(), "puma_data/pums_db.db")
-#year <- 2016
-
 num_children <- function(df, age_limit) {
   
   # This function calculates the number of persons in a tax unit
