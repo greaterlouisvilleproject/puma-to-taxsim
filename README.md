@@ -11,3 +11,5 @@ This repo contains scripts that achieve the following:
 - Convert PUMA data into a dataset that can be feed into the TAXSIM program;
 - Take the output from the TAXSIM model and calculate aggregate household tax liabilities; and
 - Subtract household tax liabilities from household income to create a variable signifying household post-tax income.
+
+The file `nc_tax_liabilities.csv` contains an example of the output. It shows the tax liabilities of all PUMA households in North Carolina from 2006 to 2017.
