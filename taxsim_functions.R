@@ -62,8 +62,7 @@ pop_taxes <- function(con, year, household = TRUE) {
   pop <- population %>%
     select(!!pop_vars) %>%
     # need to collect now because cannot transform NA without collecting
-    filter(ST == 37,
-           PUMA == 1801) %>%
+    filter(ST == 37) %>%
     collect()
   
   # prior to 2010, RELP column is called REL
@@ -93,7 +92,7 @@ pop_taxes <- function(con, year, household = TRUE) {
   
   pop <- pop %>%
     # if the year is 2017, remove the 2017 from the start of the SERIALNO
-    mutate(SERIALNO = if (year == 2017) as.integer(str_replace_all(.$SERIALNO, '^2017', ''))) %>%
+    mutate(SERIALNO = if (!!year == 2017) as.integer(str_replace_all(.$SERIALNO, '^2017', '')) else .$SERIALNO) %>%
     # replace income NA values with 0
     mutate_at(vars(WAGP, INTP, SEMP, SSP), funs(replace_na(., 0))) %>%
     mutate(taxable_income = WAGP + SEMP) %>%

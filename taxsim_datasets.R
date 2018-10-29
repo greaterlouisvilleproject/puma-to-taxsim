@@ -28,11 +28,11 @@ for (yr in seq(2006, 2017)) {
   
  # calculate taxable income and write out results
  taxes <- pop_taxes(con, yr, household = FALSE) %>%
-   # convert SERIALNO to numeric so we can combine years prior to 2017 with 2017
-   mutate(SERIALNO = as.numeric(SERIALNO)) %>%
    bind_rows(taxes, .)
  
 }
+
+# write_csv(taxes, 'nc_tax_liabilities_ind.csv', col_names = FALSE)
 
 ###########################################################################
 #
