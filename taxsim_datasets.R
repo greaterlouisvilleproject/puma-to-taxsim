@@ -22,7 +22,7 @@ con <- dbConnect(RSQLite::SQLite(), "pums_db.db")
 # initialize dataframe that will contain all years
 taxes <- data.frame()
 
-for (yr in seq(2006, 2007)) {
+for (yr in seq(2006, 2017)) {
   
   print(yr)
   
