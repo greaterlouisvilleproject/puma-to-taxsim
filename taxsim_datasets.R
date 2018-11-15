@@ -64,4 +64,4 @@ tax_liab <- read_delim('nc_from_taxsim_all.txt', delim = ' ',
   arrange(year, SERIALNO)
 
 # write out tax liabilities
-#saveRDS(tax_liab, 'nc_tax_liab_all.Rda')
+# saveRDS(tax_liab, 'nc_tax_liab_all.Rda')
