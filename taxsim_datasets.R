@@ -22,7 +22,7 @@ con <- dbConnect(RSQLite::SQLite(), "pums_db.db")
 # initialize dataframe that will contain all years
 taxes <- data.frame()
 
-for (yr in seq(2006, 2017)) {
+for (yr in seq(2017, 2017)) {
   
   print(yr)
   
@@ -51,9 +51,12 @@ file_names <- list.files('tax_puma_cal/nc_from_taxsim_online', full.names = TRUE
 # import all files into a list
 tax_liab <- read_delim(file_names, delim = ' ',
                        col_types = cols(.default = "n")) %>%
-  # calculate total tax liability, which is the sum of
-  # federal income, state income, and payroll taxes (FICA)
-  mutate(total_taxes = fiitax + siitax + fica) %>%
+  # payrool (FICA) taxes are employer's and employee's share
+  # we only want employee's share, so cut in half
+  mutate(fica = round(fica / 2,0),
+        # calculate total tax liability, which is the sum of
+        # federal income, state income, and payroll taxes (FICA)
+        total_taxes = fiitax + siitax + fica) %>%
   # group by year and serial number to calculate household taxes
   group_by(taxsim_id, year) %>%
   summarize(tax_liability = sum(total_taxes)) %>%
