@@ -22,7 +22,7 @@ con <- dbConnect(RSQLite::SQLite(), "pums_db.db")
 # initialize dataframe that will contain all years
 taxes <- data.frame()
 
-for (yr in seq(2017, 2017)) {
+for (yr in seq(2006, 2017)) {
   
   print(yr)
   
@@ -32,7 +32,7 @@ for (yr in seq(2017, 2017)) {
  
 }
 
-# write_csv(taxes, 'nc_tax_liabilities_ind.csv', col_names = FALSE)
+# write_csv(taxes, 'nc_to_taxsim_all.csv', col_names = FALSE)
 
 ###########################################################################
 #
